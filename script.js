@@ -6,21 +6,38 @@ function addItem() {
   btn.innerText = ''                              //adds 'delete' text to the button 
 	btn.setAttribute('data-delete','');                   //create an attribute to button element
 
-  if (value === '') {
+  //if value given is empty show an alert to inform user
+  if (value === '') {                             
     alert("Oops, you forgot to write your task!");
-  return
+    return
+  } 
+  
+  else if (checkSpace(value)) {
+    alert("Oops, you entered a blank task!");
+    return
   }
-  const li = document.createElement("li");                // creates an li element
-  li.innerHTML = value;                                   // adds li elements into html
+  // creates an li element
+  const li = document.createElement("li");              
+  // adds li elements into html  
+  li.innerHTML = value; 
+  // appends to the undordered list in HTML document                                  
   li.appendChild(btn);
-  ul.appendChild(li);                                   // appends to the undordered list in HTML document
+  ul.appendChild(li);                                  
   li.onclick = (entry) => {
-    entry.classList.toggle('.checked');
+    li.classList.toggle("strike");
   }
+  // allows user to remove list item when button is clicked
   btn.onclick = (event) => {
-    const li = event.target.parentNode
+    const li = event.target.parentNode;
     li.remove()
   }
-  document.querySelector("#form").value = "";            // removes content in text box when button is clicked
+
+  document.querySelector("#form").value = "";            
+}
+
+//function to check if item only has spaces
+function checkSpace(str) {
+  // call the trim() method on the string. If the string has a length of 0 then the string contains only spaces
+  return str.trim().length === 0;
 
 }
