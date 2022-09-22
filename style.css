@@ -10,6 +10,7 @@ h2 {
   font-size:13px;
   margin-bottom:20px;
   color:#aa7575;
+  font-style: italic;
 }
 
 body {
@@ -36,6 +37,7 @@ h1 {
   max-height: 100%;
   background-color: #e8b6b6;
   padding: 24px;
+  margin:0 20px;
   overflow: auto;
 }
 
@@ -47,6 +49,25 @@ input {
   border-bottom: 1px solid #fff;
   color: #fff;
   border-radius: 0;
+}
+
+#form {
+  width: 100%;
+  padding-bottom: 10px;
+  font-size:20px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  margin-bottom:10px;
+  color: #fff;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+#form::placeholder {
+  color:#897577;
+  font-family:'Comfortaa', cursive;
 }
 
 .wrapper {
@@ -69,11 +90,13 @@ ul li {
   display: flex;
   align-items:center;
   justify-content:space-between;
+  transition:0.3s;
 }
 
 
 .strike {
   text-decoration:line-through;
+  background-color:#cda1a1;
 }
 
 .add-btn {
@@ -88,6 +111,7 @@ ul li {
   transition:0.3s;
   color:#fff;
   font-family:'Comfortaa', cursive;
+  margin-bottom:10px;
 }
 
 .add-btn:hover {
@@ -106,23 +130,4 @@ ul li {
   border:none;
   background-color:transparent;
   margin-right:0px;
-}
-
-#form {
-  width: 100%;
-  padding-bottom: 10px;
-  font-size:20px;
-  outline: none;
-  border: none;
-  border-bottom: 1px solid #fff;
-  background-color: transparent;
-  margin-bottom:10px;
-  color: #fff;
-  box-shadow: none;
-  border-radius: 0;
-}
-
-#form::placeholder {
-  color:#897577;
-  font-family:'Comfortaa', cursive;
 }
