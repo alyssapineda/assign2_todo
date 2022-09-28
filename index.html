@@ -11,9 +11,9 @@
   <script src="./script.js" defer></script>
 </head>
 <body>
-  <div class="container">
+  <section class="container">
     <h1>My To-do List</h1>
-    <h2>Click the item once you complete a task, and delete by clicking the trash icon!</h2>
+    <p>Click the item once you complete a task, and delete by clicking the trash icon!</p>
     <div class="add-task">
       <input type="text" placeholder="Item" id="form">
       <button class="add-btn" onclick="addItem()">Add</button>
@@ -21,6 +21,22 @@
         <ul id="items"></ul>
       </div>
     </div>
-  </div>
+  </section>
+
+  <section class="container">
+    <h2 class="contact">In Progress 🔨</h2>
+    <p>Currently working on more tools, please keep in touch if you want to collaborate or suggest new features!</p>
+ 
+    <div class="user-info">
+      <form name="contact">
+        <input type="text" placeholder="Your Name" id="name" name="name" required>
+        <input type="email" placeholder="Your Email" id="email" name="email" required>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button class="submit-btn" onclick="submitItem()">Submit</button>
+      </form>
+    </div>
+  </section>
+
+
 </body>
 </html>
