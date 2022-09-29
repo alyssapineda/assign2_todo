@@ -36,8 +36,6 @@ h2 {
   margin-bottom:20px;
 }
 
-
-
 .container {
   border-radius: 8px;
   width: 100%;
@@ -157,4 +155,8 @@ ul li {
   border:none;
   background-color:transparent;
   margin-right:0px;
+}
+
+#message {
+  color:#fff;
 }

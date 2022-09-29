@@ -36,66 +36,62 @@ function addItem() {
     const li = event.target.parentNode;
     li.remove()
   }
-  // erases user's previous entry
+  // erases user's previous entry, if input successfully entered console shows success
   document.querySelector("#form").value = "";
   console.log("Success");            
 }
 
-//create submit function
+//Checks contact user input once submitted
 function submitItem() {
-  //declares constant accepting elements with an id form as argument
-  const name = document.querySelector('#name').name;
-  const username = document.querySelector('#username').username;
-  const message = document.querySelector('#message').message;
+  //Gets form element by numerical index
+  let name = document.forms["contact"]["name"].value;
+  let email = document.forms["contact"]["email"].value;
+  let message = document.forms["contact"]["message"].value;
 
-  //if value given is empty show an alert to inform user
-  if (name === '') or (username === '') or (message === '') {                             
-    alert("Oops, you forgot to write your task!");
-    return
-  } 
-  // calls checkSpace function to show an alert if user enters spaces as entry
-  if (checkSpace(name)) or or (username === '') or (message === '') {
-    alert("Oops, you entered a blank information!");
-    return
+//Logic for the error functions
+  //Checks for empty name input value
+  if((name == "") || checkSpace(name)){   
+    console.log("No Name Input");
+    alert("Please enter your name!");
+    return;
+  //Checks for empty email input value
+  }else if((email == "")){
+    console.log("No Email Input");
+    alert("Please enter your email!");
+    return;
+  //Checks for message has more than 200 characters
+  }else if(message > 200){
+    console.log("Message above 200 characters");
+    alert("Message is above 200 characters!")
+    return;
+  //Calls checkEmail function to validate email input, if passed console shows success
+  }else if(checkEmail(email)){
+    console.log("Success");
+    alert("Your form has been submitted!");
+  }else{
+  //If email input fails validation test, inform user to enter valid email
+    console.log("Invalid email syntax");
+    alert("Please enter a valid email!");
   }
-
-  if (checkName(name)) or (checkName(username)) or (checkName(message)) {
-    alert("Oops, you are lacking more information!");
-    return
-  }
-
-  if(name.length > 40) or (username.length > 40) {
-    alert("Your message is over 200 characters long, please shorten it!")
-    return
-  }
-
-  else if(message.length > 200) {
-    alert("Your message is over 200 characters long, please shorten it!")
-    return
-  }
-
-  // erases user's previous entry
-  document.querySelector("#contact").name = "";
-  document.querySelector("#contact").username = "";
-  document.querySelector("#contact").message = "";
-  console.log("Success");     
-  
 }
 
-//function to check if item only contains spaces
+// Checks for character limit in real time with hard limit
+function limitText(min, max){
+  if(min.value.length > max){
+    alert("You have reached the " + (max + 1) + " character limit!")
+  }
+
+}
+
+// Checks for valid email using regex
+function checkEmail(input){
+  var regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+  return regex.test(input);
+}
+
+//Checks if item only contains spaces
 function checkSpace(str) {
   // call the trim() method on the string. If the string has a length of 0 then the string contains only spaces
-  return str.trim().length === 0;
+  return str.trim().length === 0; 
 }
-
-//function for less than 1 value
-function checkName(str) {
-  // call the trim() method on the string and checks if string has a length of 1
-  return str.trim().length === 1;
-}
-//function for incorrect email
-
-//function for value greater than 40 for both name and email
-
-//function for value greater than 200 for message
 
